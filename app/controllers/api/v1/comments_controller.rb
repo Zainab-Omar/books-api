@@ -10,7 +10,7 @@ class Api::V1::CommentsController < ApplicationController
     def create
         comment = @book.comments.new(comment_params)
         if comment.save
-            render json: book
+            render json: comment
         else
             render json: {errors: comment.errors.full_messages}
         end
