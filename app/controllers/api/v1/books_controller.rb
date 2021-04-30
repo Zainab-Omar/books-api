@@ -2,7 +2,6 @@ class Api::V1::BooksController < ApplicationController
 
     def index
         books = Book.all.order_by_id
-        # render json: BookSerializer.new(books)
         render json: books
     end
 
@@ -21,9 +20,7 @@ class Api::V1::BooksController < ApplicationController
     end
 
     def update
-    #  binding.pry
         book = Book.find(params[:id])
-        # book.update(book_params)
         if book.update(book_params)
             render json: book
         else
