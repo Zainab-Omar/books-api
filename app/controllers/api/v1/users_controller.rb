@@ -1,8 +1,15 @@
 class Api::V1::UsersController < ApplicationController
     skip_before_action :authorized, only: [:create]
 
+
+    def profile
+        #  binding.pry
+        render json: { user: UserSerializer.new(current_user) }, status: :accepted
+    end    
+
+    # for user signup
     def create
-        # this method to create new user (signup form)
+        #  binding.pry
         @user = User.create(user_params)
         if @user.valid?
             @token = encode_token(user_id: @user.id)

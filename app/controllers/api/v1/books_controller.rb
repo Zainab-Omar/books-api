@@ -1,5 +1,5 @@
 class Api::V1::BooksController < ApplicationController
-
+    # skip_before_action :authorized
     def index
         books = Book.all.order_by_id
         render json: books

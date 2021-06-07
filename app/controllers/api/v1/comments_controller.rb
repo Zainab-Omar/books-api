@@ -1,4 +1,5 @@
 class Api::V1::CommentsController < ApplicationController
+    # skip_before_action :authorized
     before_action :set_book
 
     def index
