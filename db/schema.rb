@@ -17,10 +17,11 @@ ActiveRecord::Schema.define(version: 2021_05_15_164739) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
-    t.string "author"
+    t.string "authors"
     t.string "img_url"
-    t.integer "likes"
+    t.integer "published_date"
     t.integer "user_id"
+    t.integer "buy_link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
