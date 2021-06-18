@@ -1,5 +1,5 @@
 class Api::V1::BooksController < ApplicationController
-    # skip_before_action :authorized
+    skip_before_action :authorized
     def index
         books = Book.all.order_by_id
         render json: books
@@ -11,6 +11,7 @@ class Api::V1::BooksController < ApplicationController
     end
 
     def create
+        binding.pry
         book = Book.new(book_params)
         if book.save
             render json: book
@@ -30,7 +31,7 @@ class Api::V1::BooksController < ApplicationController
 
     private
     def book_params
-        params.require(:book).permit(:title, :author, :img_url, :likes)
+        params.require(:book).permit(:title, :authors, :published_date, :buy_link, :img_url, :user_id)
     end
 
 
