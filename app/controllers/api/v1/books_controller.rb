@@ -11,7 +11,7 @@ class Api::V1::BooksController < ApplicationController
     end
 
     def create
-        # binding.pry
+        binding.pry
         book = Book.new(book_params)
         if book.save
             render json: book
@@ -28,6 +28,11 @@ class Api::V1::BooksController < ApplicationController
          render json: {errors: book.errors.full_messages}
         end
     end
+
+    def destroy
+        book = Book.find(params[:id])
+        book.destroy
+      end
 
     private
     def book_params
