@@ -3,7 +3,7 @@ class Api::V1::UsersController < ApplicationController
 
 
     def profile
-        #  binding.pry
+        #   binding.pry
         render json: { user: UserSerializer.new(current_user) }, status: :accepted
     end    
 

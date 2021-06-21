@@ -11,7 +11,7 @@ class Api::V1::BooksController < ApplicationController
     end
 
     def create
-        binding.pry
+        # binding.pry
         book = Book.new(book_params)
         if book.save
             render json: book
@@ -31,7 +31,8 @@ class Api::V1::BooksController < ApplicationController
 
     private
     def book_params
-        params.require(:book).permit(:title, :authors, :published_date, :buy_link, :img_url, :user_id)
+        # binding.pry
+        params.require(:book).permit(:title, {authors: []}, :published_date, :buy_link, :img_url, :user_id)
     end
 
 
