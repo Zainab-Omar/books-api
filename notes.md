@@ -15,3 +15,13 @@ attributes:
  -comment
  -commenter
  -book_id
+
+
+-user model
+-has_many books
+-has_many comments
+attributes
+-username
+-password
+-avatar
+-bio
