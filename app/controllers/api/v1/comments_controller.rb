@@ -1,5 +1,5 @@
 class Api::V1::CommentsController < ApplicationController
-    # skip_before_action :authorized
+    skip_before_action :authorized
     before_action :set_book
 
     def index
@@ -9,6 +9,7 @@ class Api::V1::CommentsController < ApplicationController
     end
 
     def create
+        binding.pry
         comment = @book.comments.new(comment_params)
         if comment.save
             render json: comment
@@ -25,6 +26,6 @@ class Api::V1::CommentsController < ApplicationController
     end
 
     def comment_params
-        params.require(:comment).permit(:note, :book_id)
+        params.require(:comment).permit(:note, :book_id, :user_id)
     end
 end
