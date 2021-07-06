@@ -1,5 +1,5 @@
 class Api::V1::CommentsController < ApplicationController
-    # skip_before_action :authorized
+    skip_before_action :authorized
     before_action :set_book
 
     def index
@@ -15,7 +15,6 @@ class Api::V1::CommentsController < ApplicationController
         else
             render json: {errors: comment.errors.full_messages}
         end
-
     end
 
     private
@@ -25,6 +24,7 @@ class Api::V1::CommentsController < ApplicationController
     end
 
     def comment_params
-        params.require(:comment).permit(:text, :commenter, :book_id)
+        params.require(:comment).permit(:note, :book_id, :user_id)
     end
+    
 end
