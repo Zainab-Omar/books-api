@@ -9,14 +9,12 @@ class Api::V1::CommentsController < ApplicationController
     end
 
     def create
-        binding.pry
         comment = @book.comments.new(comment_params)
         if comment.save
             render json: comment
         else
             render json: {errors: comment.errors.full_messages}
         end
-
     end
 
     private
@@ -28,4 +26,5 @@ class Api::V1::CommentsController < ApplicationController
     def comment_params
         params.require(:comment).permit(:note, :book_id, :user_id)
     end
+    
 end
