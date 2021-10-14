@@ -30,6 +30,7 @@ class Api::V1::BooksController < ApplicationController
     end
 
     def destroy
+        # binding.pry
         book = Book.find(params[:id])
         book.destroy
         render json: book

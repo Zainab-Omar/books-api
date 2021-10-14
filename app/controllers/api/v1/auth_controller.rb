@@ -2,7 +2,7 @@ class Api::V1::AuthController < ApplicationController
     skip_before_action :authorized, only: [:create]
 
     def create 
-      binding.pry
+      # binding.pry
       @user = User.find_by(email: user_params[:email])
      
       if @user && @user.authenticate(user_params[:password])
