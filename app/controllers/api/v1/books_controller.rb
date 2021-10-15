@@ -30,7 +30,6 @@ class Api::V1::BooksController < ApplicationController
     end
 
     def destroy
-        # binding.pry
         book = Book.find(params[:id])
         book.destroy
         render json: book
@@ -40,6 +39,5 @@ class Api::V1::BooksController < ApplicationController
     def book_params
         params.require(:book).permit(:title, {authors: []}, :published_date, :buy_link, :img_url, :user_id)
     end
-
-
+    
 end

@@ -18,7 +18,6 @@ class Api::V1::CommentsController < ApplicationController
     end
 
     def destroy
-        # binding.pry
         comment = Comment.find(params[:id])
         comment.destroy
         render json: comment
