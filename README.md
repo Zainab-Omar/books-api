@@ -5,7 +5,7 @@ this app allow users to view, like, comment, and create books.
 Things you may want to cover:
 
 # Ruby version
-  `2.6.1`
+  `3.0.2`
 # Database creation
 I use Postgresql to create my database.
 
